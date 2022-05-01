@@ -1,0 +1,78 @@
+<div class="container">
+  <h1 style="text-align: center">Enter Cake details</h1>
+  <div style="margin: 10px">
+    <label> Name </label>
+    <input
+      name="name"
+      type="text"
+      [(ngModel)]="cake.name"
+      class="form-control"
+    />
+  </div>
+  <div style="margin: 10px">
+    <label>Price</label>
+    <input
+      name="price"
+      type="text"
+      [(ngModel)]="cake.price"
+      class="form-control"
+    />
+  </div>
+  <div style="margin: 10px">
+    <label>Description</label>
+    <input
+      name="descrition"
+      type="text"
+      [(ngModel)]="cake.descrition"
+      class="form-control"
+    />
+  </div>
+  <div style="margin: 10px">
+    <label>Ingredients</label>
+    <input
+      name="ingredients"
+      type="text"
+      [(ngModel)]="cake.ingredients"
+      class="form-control"
+    />
+  </div>
+  <div style="margin: 10px">
+    <label>Type</label>
+    <input
+      name="type"
+      type="text"
+      [(ngModel)]="cake.type"
+      class="form-control"
+    />
+  </div>
+  <div style="margin: 10px">
+    <label>Weight</label>
+    <input
+      name="weight"
+      type="text"
+      [(ngModel)]="cake.weight"
+      class="form-control"
+    />
+  </div>
+  <div style="margin: 10px">
+    <label>EggLess</label>
+    <input
+      name="eggless"
+      type="text"
+      [(ngModel)]="cake.eggless"
+      class="form-control"
+    />
+  </div>
+  <div style="margin: 10px">
+    <label>Image</label>
+    <input (change)="getFile($event)" type="file" />
+    <button (click)="upload()" class="btn btn-outline-dark">
+      Upload <fa-icon [icon]="faUpload"></fa-icon>
+    </button>
+  </div>
+  <div class="form-group mt-3">
+    <button (click)="submit()" class="btn btn-outline-dark">
+      Add <fa-icon [icon]="faCake"></fa-icon>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,83 @@
+<form style="width: 30%; margin: auto; background-color: rgb(173, 223, 247)">
+  <div
+    style="
+      margin-left: 190px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+        'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    "
+  >
+    <h2>Signup Here</h2>
+  </div>
+  <div *ngIf="responseError" class="w-50" style="width: 90%; margin: auto">
+    <label for="exampleFormControlInput1" class="alert alert-danger">{{
+      responseError
+    }}</label>
+  </div>
+  <div class="w-50" style="width: 90%; margin: auto">
+    <label for="inputname" class="form-label">Name</label>
+
+    <input
+      name="fullname"
+      type="text"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="name.."
+      [(ngModel)]="userdetails.name"
+    />
+  </div>
+  <div class="w-50" style="width: 90%; margin: auto">
+    <label for="exampleFormControlInput1" class="form-label"
+      >Email address</label
+    >
+    <input
+      name="email"
+      [(ngModel)]="userdetails.email"
+      type="email"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="name@example.com"
+    />
+  </div>
+
+  <div class="w-50" style="width: 90%; margin: auto">
+    <label for="exampleFormControlInput1" class="form-label">Password</label>
+    <input
+      name="password"
+      [(ngModel)]="userdetails.password"
+      type="password"
+      class="form-control"
+      id="exampleFormControlInput1"
+    />
+  </div>
+  <div style="margin-left: 240px">
+    <button (click)="signup()" type="submit" class="btn btn-primary">
+      Sign Up
+    </button>
+  </div>
+
+  <div *ngIf="users.length !== 0">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Password</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let eachuser of users; let i = index">
+          <td>{{ eachuser.name }}</td>
+          <td>{{ eachuser.email }}</td>
+          <td>{{ eachuser.password }}</td>
+          <td>
+            <button (click)="deleteUser(i)" class="btn btn-danger">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</form>
